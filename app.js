@@ -1,6 +1,6 @@
 //Getting the data
 document.getElementById("button").addEventListener("click", loadUser);
-
+document.getElementById("button").onClick = this.disabled = true;
 function loadUser() {
   var xhr = new XMLHttpRequest();
   xhr.open("GET", "http://127.0.0.1:3000/users/", true);
@@ -25,11 +25,14 @@ function loadUser() {
       }
     }
   };
+  const button = document.querySelector("button");
+  button.setAttribute("disabled", "");
   xhr.send();
 }
 
 //For Posting the data
 const form = document.getElementById("postData");
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -46,6 +49,7 @@ form.addEventListener("submit", (e) => {
   http.onload = function () {
     alert(http.responseText);
   };
+  document.getElementById("postData").reset();
 });
 
 //For Getting the data by id
