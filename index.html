@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AJAX API Test</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="main">
+      <div class="getForm">
+        <table id="table">
+          <tr id="tr">
+            <th id="fName">First Name</th>
+            <th id="lName">Last Name</th>
+            <th id="age">Age</th>
+            <th id="action">Operation</th>
+          </tr>
+        </table>
+        <br />
+        <button type="submit" id="button">Get Data</button>
+      </div>
+      <h4>Submit Data</h4>
+      <div id="postForm">
+        <form action="" id="postData" class="form-example">
+          <div>
+            <label for="fName">Enter your fName: </label>
+            <input type="text" name="fName" id="fName" required />
+          </div>
+          <div>
+            <label for="lName">Enter your lName: </label>
+            <input type="text" name="lName" id="lName" required />
+          </div>
+          <div>
+            <label for="age">Enter your Age: </label>
+            <input type="number" name="age" id="age" required />
+          </div>
+          <div>
+            <input type="submit" value="Click Me" />
+          </div>
+        </form>
+      </div>
+      <h4>Get Data By ID</h4>
+      <div id="getDataByID">
+        <form action="" id="getDataByID" class="form-example">
+          <div>
+            <label for="id">Enter your ID: </label>
+            <input type="text" name="id" id="id" required />
+            <div id="tableGDBI"></div>
+          </div>
+
+          <div>
+            <input type="submit" value="Click Me" />
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="./app.js" async defer></script>
+  </body>
+</html>
