@@ -45,3 +45,35 @@ form.addEventListener("submit", (e) => {
     alert(http.responseText);
   };
 });
+//For Getting the data by id
+
+const getDataByID = document.getElementById("getDataByID");
+getDataByID.addEventListener("submit", (e) => {
+  e.preventDefault();
+  var xhr = new XMLHttpRequest();
+  var id = document.getElementById("id").value;
+
+  xhr.open("GET", `http://127.0.0.1:3000/users/${id}`, true);
+  xhr.onload = function () {
+    if (this.status == 200) {
+      var user = JSON.parse(this.responseText);
+      console.log(user);
+      var table = document.getElementById("tableGDBI");
+      let data = `<table id="getByIDTable">
+      <tr>
+       <th>Name</th>
+       <th>Last Name</th>
+       <th>Age</th>
+      </tr>
+      <tr>
+       <td>${user.fName}</td>
+       <td>${user.lName}</td>\
+       <td>${user.age}</td>
+      </tr>
+      
+     </table>`;
+      table.innerHTML = data;
+    }
+  };
+  xhr.send();
+});
