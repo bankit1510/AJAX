@@ -27,3 +27,21 @@ function loadUser() {
   };
   xhr.send();
 }
+//For Posting the data
+const form = document.getElementById("postData");
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const params = {
+    fName: document.querySelector("#fName").value,
+    lName: document.querySelector("#lName").value,
+    age: document.querySelector("#age").value,
+  };
+
+  const http = new XMLHttpRequest();
+  http.open("POST", "http://127.0.0.1:3000/users/");
+  http.setRequestHeader("Content-type", "application/json");
+  http.send(JSON.stringify(params));
+  http.onload = function () {
+    alert(http.responseText);
+  };
+});
