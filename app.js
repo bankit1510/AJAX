@@ -27,10 +27,12 @@ function loadUser() {
   };
   xhr.send();
 }
+
 //For Posting the data
 const form = document.getElementById("postData");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+
   const params = {
     fName: document.querySelector("#fName").value,
     lName: document.querySelector("#lName").value,
@@ -45,6 +47,7 @@ form.addEventListener("submit", (e) => {
     alert(http.responseText);
   };
 });
+
 //For Getting the data by id
 
 const getDataByID = document.getElementById("getDataByID");
