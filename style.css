@@ -1,34 +1,72 @@
-#table {
-  border-style: groove;
-  border-color: rgb(0, 0, 0);
-  border-collapse: collapse;
-  box-shadow: #ff0000;
-}
-#tr {
-  border-style: groove;
-  border-color: rgb(0, 0, 0);
-}
-#td,
-th {
-  border-style: groove;
-  border-color: rgb(0, 0, 0);
-  height: 41px;
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+button {
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: "Roboto", sans-serif;
+  color: #ffffff;
+  font-size: 12px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
 }
 
-#main {
-  margin: 1rem;
-  padding: 2rem 2rem;
+#submitID,
+#postButton,
+#updateButton {
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: "Roboto", sans-serif;
+  color: #ffffff;
+  font-size: 12px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #bdcee6;
+}
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+th {
+  padding: 10px 5px;
+  border: 1px solid rgb(0, 0, 0);
+  text-align: left;
+  font-weight: 500;
+  font-size: 16px;
+  color: rgb(255, 0, 0);
+  text-transform: uppercase;
+  font-weight: bolder;
   text-align: center;
 }
-#child {
-  display: inline-block;
-  padding: 1rem 1rem;
+td {
+  padding: 5px;
+  border: 1px solid rgb(0, 0, 0);
+  text-align: center;
   vertical-align: middle;
-}
-#getByIDTable {
-  border-style: groove;
-  border-color: rgb(0, 0, 0);
-  border-collapse: collapse;
-  box-shadow: #ff0000;
+  font-weight: 300;
+  font-size: 16px;
+  color: #fff;
+  border-bottom: solid -1px rgba(255, 255, 255, 0.1);
 }
