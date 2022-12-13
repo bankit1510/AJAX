@@ -102,7 +102,7 @@ getDataByID.addEventListener("submit", (e) => {
        <td>${user.fName}</td>
        <td>${user.lName}</td>
        <td>${user.age}</td>
-      <td><button id="edit" onclick='editData("${user.id}")'>Edit</button></td>
+      <td><button id="edit" onclick='editData("${users[i].id}","${users[i].fName} ","${users[i].lName}")'>Edit</button></td>
       <td><button id="delete" onclick='deleteData("${user.id}")'>Delete</button></td>
       </tr>
       
