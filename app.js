@@ -70,7 +70,7 @@ postButton.addEventListener("click", (e) => {
       alert(http.responseText);
     };
     if (window.confirm("Do you want to update this user data?")) {
-      alert("record deleted successfully");
+      alert("record updated successfully");
       document.querySelector("#fName").value = "";
       document.querySelector("#lName").value = "";
       document.querySelector("#age").value = null;
@@ -102,7 +102,7 @@ getDataByID.addEventListener("submit", (e) => {
        <td>${user.fName}</td>
        <td>${user.lName}</td>
        <td>${user.age}</td>
-      <td><button id="edit" onclick='editData("${users[i].id}","${users[i].fName} ","${users[i].lName}")'>Edit</button></td>
+      <td><button id="edit" onclick='editData("${user.id}","${user.fName} ","${user.lName}","${user.age}")'>Edit</button></td>
       <td><button id="delete" onclick='deleteData("${user.id}")'>Delete</button></td>
       </tr>
       
