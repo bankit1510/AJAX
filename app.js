@@ -19,7 +19,7 @@ function loadUser() {
             <td>${users[i].fName}</td>
             <td>${users[i].lName}</td>
             <td>${users[i].age}</td>
-            <td><button id="edit" onClick='editData("${users[i].id}")'>Edit</button></td>&nbsp
+            <td><button id="edit" onClick='editData("${users[i].id}","${users[i].fName} ","${users[i].lName}"," ${users[i].age} ")'>Edit</button></td>&nbsp
             <td><button id="delete" onclick='deleteData("${users[i].id}")'>Delete</button></td>&nbsp
         </tr>`;
       }
@@ -31,25 +31,55 @@ function loadUser() {
 }
 
 //For Posting the data
-const form = document.getElementById("postData");
 
-form.addEventListener("submit", (e) => {
+const postButton = document.getElementById("postButton");
+
+postButton.addEventListener("click", (e) => {
   e.preventDefault();
 
-  const params = {
-    fName: document.querySelector("#fName").value,
-    lName: document.querySelector("#lName").value,
-    age: document.querySelector("#age").value,
-  };
+  if (document.querySelector("#idU").value === "") {
+    const params = {
+      fName: document.querySelector("#fName").value,
+      lName: document.querySelector("#lName").value,
+      age: document.querySelector("#age").value,
+    };
+    const http = new XMLHttpRequest();
+    http.open("POST", "http://127.0.0.1:3000/users/");
+    http.setRequestHeader("Content-type", "application/json");
+    http.send(JSON.stringify(params));
+    http.onload = function () {
+      alert(http.responseText);
+    };
 
-  const http = new XMLHttpRequest();
-  http.open("POST", "http://127.0.0.1:3000/users/");
-  http.setRequestHeader("Content-type", "application/json");
-  http.send(JSON.stringify(params));
-  http.onload = function () {
-    alert(http.responseText);
-  };
-  document.getElementById("postData").reset();
+    document.querySelector("#fName").value = "";
+    document.querySelector("#lName").value = "";
+
+    document.querySelector("#age").value = null;
+  } else if (document.querySelector("#idU").value !== "") {
+    var id = document.querySelector("#idU").value;
+    const params = {
+      fName: document.querySelector("#fName").value,
+      lName: document.querySelector("#lName").value,
+      age: document.querySelector("#age").value,
+    };
+    const http = new XMLHttpRequest();
+    http.open("PATCH", `http://127.0.0.1:3000/users/${id}`);
+    http.setRequestHeader("Content-type", "application/json");
+    http.send(JSON.stringify(params));
+    http.onload = function () {
+      alert(http.responseText);
+    };
+    if (window.confirm("Do you want to update this user data?")) {
+      alert("record deleted successfully");
+      document.querySelector("#fName").value = "";
+      document.querySelector("#lName").value = "";
+      document.querySelector("#age").value = null;
+      document.querySelector("#idU").value = null;
+      location.reload();
+    } else {
+      return;
+    }
+  }
 });
 
 //For Getting the data by id
@@ -87,6 +117,7 @@ getDataByID.addEventListener("submit", (e) => {
 //Deleting a record
 function deleteData(testId) {
   console.log(testId);
+
   var xhr = new XMLHttpRequest();
 
   xhr.open("DELETE", `http://127.0.0.1:3000/users/${testId}`, true);
@@ -96,31 +127,35 @@ function deleteData(testId) {
       location.reload();
     }
   };
-  xhr.send();
+  if (window.confirm("Do you want to delete this user data?")) {
+    alert("data deleted successfully");
+    xhr.send();
+  } else {
+    return;
+  }
 }
 
-function editData(updateId) {
-  console.log(updateId);
-}
-//Updating the data
+var editData = (id, fName, lName, age) => {
+  document.querySelector("#idU").value = id;
+  document.querySelector("#fName").value = fName;
+  document.querySelector("#lName").value = lName;
+  document.querySelector("#age").value = parseInt(age);
+  console.log(id + fName + lName + age);
+};
 
-// const Updateform = document.getElementById("UpdateDataById");
-
-// form.addEventListener("submit", (e) => {
-//   e.preventDefault();
-
+// document.querySelector("#fName").value = fName;
+//   document.querySelector("#lName").value = lName;
+//   document.querySelector("#age").value = parseInt(age);
 //   const params = {
-//     fName: document.querySelector("#fNameU").value,
-//     lName: document.querySelector("#lNameU").value,
-//     age: document.querySelector("#ageU").value,
+//     fName: fName,
+//     lName: lName,
+//     age: age,
 //   };
-
 //   const http = new XMLHttpRequest();
-//   http.open("PATCH", "http://127.0.0.1:3000/users/");
+//   http.open("PATCH", `http://127.0.0.1:3000/users/${id}`);
 //   http.setRequestHeader("Content-type", "application/json");
 //   http.send(JSON.stringify(params));
-//   http.onload = function () {
-//     alert(http.responseText);
-//   };
-//   document.getElementById("postData").reset();
-// });
+// http.onload = function () {
+//   alert(http.responseText);
+// };
+//Updating the data

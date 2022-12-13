@@ -10,26 +10,21 @@
   <body>
     <div id="main">
       <h4>Get Data By ID</h4>
-      <div id="DataByID">
-        <form action="" id="getDataByID" class="getDataByID">
-          <div>
-            <label for="id">Enter your ID: </label>
-            <input
-              type="text"
-              name="id"
-              id="id"
-              class="searchTerm"
-              required
-              placeholder="Please enter the ID here"
-            />
-            <div id="tableGDBI"></div>
-          </div>
 
-          <div>
-            <input type="submit" value="Get Data By ID" id="submitID" />
-          </div>
-        </form>
-      </div>
+      <form action="" id="getDataByID" class="getDataByID">
+        <label for="id">Enter your ID: </label>
+        <input
+          type="text"
+          name="id"
+          id="id"
+          class="searchTerm"
+          required
+          placeholder="Please enter the ID here"
+        />
+        <div id="tableGDBI"></div>
+
+        <input type="submit" value="Get Data By ID" id="submitID" />
+      </form>
 
       <div class="getForm">
         <table id="table">
@@ -44,28 +39,22 @@
         <br />
         <button type="submit" id="button">Get All Data</button>
       </div>
-      <h4>Submit Data</h4>
+      <h4>Add / Update Data</h4>
       <div id="postForm">
-        <form action="" id="postData" class="form-example">
-          <div>
-            <label for="fName">Enter your fName: </label>
-            <input type="text" name="fName" id="fName" required />
-          </div>
-          <div>
-            <label for="lName">Enter your lName: </label>
-            <input type="text" name="lName" id="lName" required />
-          </div>
-          <div>
-            <label for="age">Enter your Age: </label>
-            <input type="number" name="age" id="age" required />
-          </div>
-          <div>
-            <input type="submit" value="Post Data" id="postButton" />
-          </div>
-        </form>
+        <label for="fName">Enter your fName: </label>
+        <input type="text" name="fName" id="fName" required />
+
+        <label for="lName">Enter your lName: </label>
+        <input type="text" name="lName" id="lName" required />
+
+        <label for="age">Enter your Age: </label>
+        <input type="number" name="age" id="age" required />
+        <input type="hidden" id="idU" name="idUpdate" value="" />
+        <div>
+          <input type="submit" value="Post Data" id="postButton" />
+        </div>
       </div>
     </div>
-
     <link rel="preconnect" href="https://fonts.googleapis.com" /><link
       rel="preconnect"
       href="https://fonts.gstatic.com"
