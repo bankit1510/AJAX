@@ -51,6 +51,7 @@ body {
 table {
   width: 100%;
   table-layout: fixed;
+  margin-top: 10px;
 }
 th {
   padding: 10px 5px;
@@ -78,5 +79,7 @@ td {
 #postData {
   display: flex;
   margin: auto;
-  width: 15%;
+  width: 12%;
+  margin-top: 5px;
+  margin-top: 5px;
 }
