@@ -21,9 +21,10 @@
           required
           placeholder="Please enter the ID here"
         />
-        <div id="tableGDBI"></div>
-
-        <input type="submit" value="Get Data By ID" id="submitID" />
+        <div id="tableGetDataById"></div>
+        <div id="getDataById">
+          <input type="submit" value="Get Data By ID" id="submitID" />
+        </div>
       </form>
 
       <div class="getForm">
@@ -37,20 +38,22 @@
           </tr>
         </table>
         <br />
-        <button type="submit" id="button">Get All Data</button>
+        <div id="getAllData">
+          <button type="submit" id="button">Get All Data</button>
+        </div>
       </div>
       <h4>Add / Update Data</h4>
       <div id="postForm">
-        <label for="fName">Enter your fName: </label>
+        <label for="fName">Enter your First Name: </label>
         <input type="text" name="fName" id="fName" required />
 
-        <label for="lName">Enter your lName: </label>
+        <label for="lName">Enter your Last Name: </label>
         <input type="text" name="lName" id="lName" required />
 
         <label for="age">Enter your Age: </label>
         <input type="number" name="age" id="age" required />
         <input type="hidden" id="idU" name="idUpdate" value="" />
-        <div>
+        <div id="postData">
           <input type="submit" value="Post Data" id="postButton" />
         </div>
       </div>

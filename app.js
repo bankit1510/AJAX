@@ -95,7 +95,7 @@ getDataByID.addEventListener("submit", (e) => {
     if (this.status == 200) {
       var user = JSON.parse(this.responseText);
       console.log(user);
-      var table = document.getElementById("tableGDBI");
+      var table = document.getElementById("tableGetDataById");
       let data = `<table id="getByIDTable">
       
       <tr>
